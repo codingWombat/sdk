@@ -23,7 +23,7 @@ namespace Microsoft.DotNet.Restore.Test
         {
         }
 
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData(true)]
         [InlineData(false)]
         public void ItRestoresAppToSpecificDirectory(bool useStaticGraphEvaluation)
@@ -52,7 +52,7 @@ namespace Microsoft.DotNet.Restore.Test
             Directory.EnumerateFiles(fullPath, "*.dll", SearchOption.AllDirectories).Count().Should().BeGreaterThan(0);
         }
 
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData(true, ".csproj")]
         [InlineData(false, ".csproj")]
         [InlineData(true, ".fsproj")]
@@ -101,7 +101,7 @@ namespace Microsoft.DotNet.Restore.Test
             dllCount.Should().BeGreaterThan(0);
         }
 
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData(true)]
         [InlineData(false)]
         public void ItRestoresTestAppToSpecificDirectory(bool useStaticGraphEvaluation)
@@ -127,7 +127,7 @@ namespace Microsoft.DotNet.Restore.Test
             Directory.EnumerateFiles(fullPath, "*.dll", SearchOption.AllDirectories).Count().Should().BeGreaterThan(0);
         }
 
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData(true)]
         [InlineData(false)]
         public void ItRestoresWithTheSpecifiedVerbosity(bool useStaticGraphEvaluation)

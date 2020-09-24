@@ -86,7 +86,7 @@ namespace Microsoft.NET.Publish.Tests
                                                      runtimeIdentifier: RuntimeInformation.RuntimeIdentifier);
         }
 
-        [Fact]
+        [Fact(Skip ="tmp")]
         public void Incremental_add_single_file()
         {
             var testProject = new TestProject()
@@ -120,7 +120,7 @@ namespace Microsoft.NET.Publish.Tests
                 .HaveStdOutContaining("Hello World");
         }
 
-        [Fact]
+        [Fact(Skip ="tmp")]
         public void It_errors_when_publishing_single_file_app_without_rid()
         {
             GetPublishCommand()
@@ -131,7 +131,7 @@ namespace Microsoft.NET.Publish.Tests
                 .HaveStdOutContaining(Strings.CannotHaveSingleFileWithoutRuntimeIdentifier);
         }
 
-        [Fact]
+        [Fact(Skip ="tmp")]
         public void It_errors_when_publishing_single_file_without_apphost()
         {
             GetPublishCommand()
@@ -142,7 +142,7 @@ namespace Microsoft.NET.Publish.Tests
                 .HaveStdOutContaining(Strings.CannotHaveSingleFileWithoutAppHost);
         }
 
-        [Fact]
+        [Fact(Skip ="tmp")]
         public void It_errors_when_publishing_single_file_lib()
         {
             var testProject = new TestProject()
@@ -166,7 +166,7 @@ namespace Microsoft.NET.Publish.Tests
                 .NotHaveStdOutContaining(Strings.CanOnlyHaveSingleFileWithNetCoreApp);
         }
 
-        [Fact]
+        [Fact(Skip ="tmp")]
         public void It_errors_when_targetting_netstandard()
         {
             var testProject = new TestProject()
@@ -190,7 +190,7 @@ namespace Microsoft.NET.Publish.Tests
                 .NotHaveStdOutContaining(Strings.CannotHaveSingleFileWithoutExecutable);
         }
 
-        [Fact]
+        [Fact(Skip ="tmp")]
         public void It_errors_when_targetting_netcoreapp_2_x()
         {
             var testProject = new TestProject()

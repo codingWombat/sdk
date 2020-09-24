@@ -23,7 +23,7 @@ namespace Microsoft.NET.Publish.Tests
         {
         }
 
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData("netcoreapp1.1")]
         [InlineData("netcoreapp2.0")]
         [InlineData("netcoreapp3.0")]
@@ -60,7 +60,7 @@ namespace Microsoft.NET.Publish.Tests
                 .HaveStdOutContaining("Hello World!");
         }
 
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData("netcoreapp1.1")]
         [InlineData("netcoreapp2.0")]
         [InlineData("netcoreapp3.0")]
@@ -121,7 +121,7 @@ namespace Microsoft.NET.Publish.Tests
                 .HaveStdOutContaining("Hello World!");
         }
 
-        [Fact]
+        [Fact(Skip ="tmp")]
         public void Publish_self_contained_app_with_dot_in_the_name()
         {
             var targetFramework = "netcoreapp2.1";
@@ -159,7 +159,7 @@ public static class Program
             publishDirectory.Should().HaveFile($"Hello.World{Constants.ExeSuffix}");
         }
 		
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData("win-arm")]
         [InlineData("win8-arm")]
         [InlineData("win81-arm")]
@@ -227,19 +227,19 @@ public static class Program
             publishDirectory.Should().HaveFiles(filesPublished);
         }
 
-        [Fact]
+        [Fact(Skip ="tmp")]
         public void Conflicts_are_resolved_when_publishing_a_portable_app()
         {
             Conflicts_are_resolved_when_publishing(selfContained: false, ridSpecific: false);
         }
 
-        [Fact]
+        [Fact(Skip ="tmp")]
         public void Conflicts_are_resolved_when_publishing_a_self_contained_app()
         {
             Conflicts_are_resolved_when_publishing(selfContained: true, ridSpecific: true);
         }
 
-        [Fact]
+        [Fact(Skip ="tmp")]
         public void Conflicts_are_resolved_when_publishing_a_rid_specific_shared_framework_app()
         {
             Conflicts_are_resolved_when_publishing(selfContained: false, ridSpecific: true);
@@ -393,7 +393,7 @@ public static class Program
 
         }
 
-        [Fact]
+        [Fact(Skip ="tmp")]
         public void A_deployment_project_can_reference_the_hello_world_project()
         {
             var helloWorldAsset = _testAssetsManager
@@ -408,7 +408,7 @@ public static class Program
                 .Pass();
         }
 
-        [Fact]
+        [Fact(Skip ="tmp")]
         public void It_fails_for_unsupported_rid()
         {
             var helloWorldAsset = _testAssetsManager
@@ -421,7 +421,7 @@ public static class Program
             publishResult.Should().Fail();
         }
 
-        [Fact]
+        [Fact(Skip ="tmp")]
         public void It_allows_unsupported_rid_with_override()
         {
             var helloWorldAsset = _testAssetsManager
@@ -434,7 +434,7 @@ public static class Program
             publishResult.Should().Pass();
         }
 
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData("netcoreapp2.1")]
         [InlineData("netcoreapp3.0")]
         public void It_preserves_newest_files_on_publish(string tfm)
@@ -466,7 +466,7 @@ public static class Program
                 .NotHaveStdOutContaining("Copying");
         }
 
-        [Fact]
+        [Fact(Skip ="tmp")]
         public void It_fails_if_nobuild_was_requested_but_build_was_invoked()
         {
             var testProject = new TestProject()
@@ -496,11 +496,11 @@ public static class Program
                 .HaveStdOutContaining("NETSDK1085");
         }
 
-        [WindowsOnlyFact]
+        [WindowsOnlyFact(Skip ="tmp")]
         public void It_contains_no_duplicates_in_resolved_publish_assets_on_windows()
             => It_contains_no_duplicates_in_resolved_publish_assets("windows");
 
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData("console")]
         [InlineData("web")]
         public void It_contains_no_duplicates_in_resolved_publish_assets(string type)
@@ -562,7 +562,7 @@ public static class Program
                 .NotHaveStdOutContaining("Duplicate filenames are present");
         }
 
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData(null, null)]
         [InlineData(false, null)]
         [InlineData(true, null)]
@@ -642,7 +642,7 @@ public static class Program
             }
         }
 
-        [Fact]
+        [Fact(Skip ="tmp")]
         public void It_publishes_with_full_path_publish_profile()
         {
             var libProject = new TestProject()

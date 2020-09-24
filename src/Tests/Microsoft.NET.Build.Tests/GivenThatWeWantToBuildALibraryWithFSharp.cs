@@ -108,7 +108,7 @@ namespace Microsoft.NET.Build.Tests
             return itemValues;
         }
 
-        [Fact]
+        [Fact(Skip ="tmp")]
         public void The_build_fails_if_nuget_restore_has_not_occurred()
         {
             var testAsset = _testAssetsManager
@@ -122,7 +122,7 @@ namespace Microsoft.NET.Build.Tests
                 .Fail();
         }
 
-        [Fact]
+        [Fact(Skip ="tmp")]
         public void Restore_succeeds_even_if_the_project_extension_is_for_a_different_language()
         {
             var testAsset = _testAssetsManager

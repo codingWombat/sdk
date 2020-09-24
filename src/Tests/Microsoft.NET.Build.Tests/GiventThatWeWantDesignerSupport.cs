@@ -25,7 +25,7 @@ namespace Microsoft.NET.Build.Tests
         }
 
         // https://github.com/dotnet/sdk/issues/13728
-        [CoreMSBuildOnlyTheory]
+        [CoreMSBuildOnlyTheory(Skip ="tmp")]
         [InlineData("net46")]
         [InlineData("netcoreapp3.0")]
         [InlineData("net5.0-windows")]

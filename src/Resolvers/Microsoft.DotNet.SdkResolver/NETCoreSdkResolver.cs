@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -157,6 +158,7 @@ namespace Microsoft.DotNet.DotNetSdkResolver
                 result.FailedToResolveSDKSpecifiedInGlobalJson = true;
                 // We need the SDK to be version 5 or higher to ensure that we generate a build error when we fail to resolve the SDK specified by global.json
                 mostCompatible = GetMostCompatibleSdk(dotnetExeDir, msbuildVersion, 5);
+                Trace.Assert(mostCompatible != null);
             }
             else if (result.ResolvedSdkDirectory != null
                      && result.GlobalJsonPath == null

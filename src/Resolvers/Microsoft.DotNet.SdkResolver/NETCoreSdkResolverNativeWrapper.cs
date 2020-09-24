@@ -3,6 +3,7 @@
 
 using System;
 using System.Diagnostics;
+using System.Threading;
 
 namespace Microsoft.DotNet.DotNetSdkResolver
 {
@@ -20,7 +21,12 @@ namespace Microsoft.DotNet.DotNetSdkResolver
                 ? Interop.Windows.hostfxr_resolve_sdk2(dotnetExeDirectory, globalJsonStartDirectory, flags, result.Initialize)
                 : Interop.Unix.hostfxr_resolve_sdk2(dotnetExeDirectory, globalJsonStartDirectory, flags, result.Initialize);
 
+            // If errror code is 0 then resolved dir should not be null
+            // If error code is not 0 then resolved dir should be null
             Debug.Assert((errorCode == 0) == (result.ResolvedSdkDirectory != null));
+
+            // Error code is nonzero, resolved dir is null
+            Trace.Assert(errorCode != 0);
             return result;
         }
 

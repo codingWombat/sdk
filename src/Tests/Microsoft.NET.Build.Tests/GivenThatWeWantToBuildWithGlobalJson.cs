@@ -1,5 +1,5 @@
 ﻿// Copyright (c) .NET Foundation and contributors. All rights reserved.
-// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.Theory]
 
 using FluentAssertions;
 using Microsoft.NET.TestFramework;
@@ -38,7 +38,7 @@ namespace Microsoft.NET.Build.Tests
 }");
 
             var resolveSdkCommand = new ResolveSdkCommand(testAsset);
-            var result = resolveSdkCommand.Execute($"/p:BuildingInsideVisualStudio={runningInVS}")
+            var result = resolveSdkCommand.Execute($"/p:BuildingInsideVisualStudio={runningInVS}", $"/bl:log/Debug/binlog{runningInVS}.binlog")
                 .Should()
                 .Fail();
             var warningString = "warning : Unable to locate the .NET SDK as specified by global.json, please check that the specified version is installed.";

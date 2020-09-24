@@ -103,7 +103,7 @@ namespace Microsoft.NET.Build.Tests
                 .HaveStdOutContaining("NETSDK1137");
         }
 
-        [WindowsOnlyFact]
+        [WindowsOnlyFact(Skip ="tmp")]
         public void It_does_not_warn_when_multitargeting()
         {
             var targetFramework = "net5.0;net472;netcoreapp3.1";
@@ -126,7 +126,7 @@ namespace Microsoft.NET.Build.Tests
                 .NotHaveStdOutContaining("NETSDK1137");
         }
 
-        [WindowsOnlyFact]
+        [WindowsOnlyFact(Skip ="tmp")]
         public void It_imports_when_targeting_dotnet_3()
         {
             var targetFramework = "netcoreapp3.1";
@@ -152,7 +152,7 @@ namespace Microsoft.NET.Build.Tests
             getValuesCommand.GetValues().ShouldBeEquivalentTo(new[] { "true" });
         }
 
-        [WindowsOnlyFact]
+        [WindowsOnlyFact(Skip ="tmp")]
         public void It_fails_if_windows_target_platform_version_is_invalid()
         {
             var testProject = new TestProject()
@@ -171,7 +171,7 @@ namespace Microsoft.NET.Build.Tests
                 .HaveStdOutContaining("NETSDK1140");
         }
 
-        [WindowsOnlyTheory]
+        [WindowsOnlyTheory(Skip ="tmp")]
         [InlineData(true)]
         [InlineData(false)]
         public void It_succeeds_if_windows_target_platform_version_does_not_have_trailing_zeros(bool setInTargetframework)
@@ -201,7 +201,7 @@ namespace Microsoft.NET.Build.Tests
             getValuesCommand.GetValues().Should().BeEquivalentTo(new[] { "10.0.18362.0" });
         }
 
-        [Fact]
+        [Fact(Skip ="tmp")]
         public void It_fails_if_target_platform_identifier_and_version_are_invalid()
         {
             var testProject = new TestProject()

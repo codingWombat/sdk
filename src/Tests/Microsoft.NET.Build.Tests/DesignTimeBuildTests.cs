@@ -21,7 +21,7 @@ namespace Microsoft.NET.Build.Tests
         {
         }
 
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData("TestLibrary", null)]
         [InlineData("TestApp", null)]
         [InlineData("TestApp", "netcoreapp2.1")]
@@ -58,7 +58,7 @@ namespace Microsoft.NET.Build.Tests
             result.Should().Pass();
         }
 
-        [Fact]
+        [Fact(Skip ="tmp")]
         public void DesignTimeBuildSucceedsAfterTargetFrameworkIsChanged()
         {
             TestDesignTimeBuildAfterChange(project =>
@@ -70,7 +70,7 @@ namespace Microsoft.NET.Build.Tests
             });
         }
 
-        [Fact]
+        [Fact(Skip ="tmp")]
         public void DesignTimeBuildSucceedsAfterRuntimeIdentifierIsChanged()
         {
             TestDesignTimeBuildAfterChange(project =>
@@ -81,7 +81,7 @@ namespace Microsoft.NET.Build.Tests
             });
         }
 
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData("netcoreapp3.0")]
         [InlineData("net5.0")]
         [InlineData("net5.0-windows")]
@@ -112,7 +112,7 @@ namespace Microsoft.NET.Build.Tests
                 .BeEquivalentTo("Newtonsoft.Json/12.0.2", "Humanizer/2.6.2");
         }
 
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData("netcoreapp3.0")]
         [InlineData("net5.0")]
         [InlineData("net5.0-windows")]

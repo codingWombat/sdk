@@ -28,7 +28,7 @@ namespace Microsoft.NET.Publish.Tests
         {
         }
 
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData("netcoreapp3.0")]
         public void ILLink_only_runs_when_switch_is_enabled(string targetFramework)
         {
@@ -62,7 +62,7 @@ namespace Microsoft.NET.Publish.Tests
             DoesDepsFileHaveAssembly(depsFile, unusedFrameworkAssembly).Should().BeTrue();
         }
 
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData("netcoreapp3.0", true)]
         [InlineData("netcoreapp3.0", false)]
         public void ILLink_runs_and_creates_linked_app(string targetFramework, bool referenceClassLibAsPackage)
@@ -282,7 +282,7 @@ namespace Microsoft.NET.Publish.Tests
             File.Exists(publishedDll).Should().BeFalse();
         }
 
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData("netcoreapp3.0")]
         public void ILLink_accepts_root_descriptor(string targetFramework)
         {
@@ -402,7 +402,7 @@ namespace Microsoft.NET.Publish.Tests
             DoesImageHaveMethod(referenceDll, "FeatureImplementation").Should().BeTrue();
         }
 
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData("netcoreapp3.0")]
         public void ILLink_runs_incrementally(string targetFramework)
         {
@@ -430,7 +430,7 @@ namespace Microsoft.NET.Publish.Tests
             semaphoreFirstModifiedTime.Should().Be(semaphoreSecondModifiedTime);
         }
 
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData("netcoreapp3.0")]
         public void ILLink_defaults_keep_nonframework(string targetFramework)
         {
@@ -466,7 +466,7 @@ namespace Microsoft.NET.Publish.Tests
             DoesDepsFileHaveAssembly(depsFile, unusedFrameworkAssembly).Should().BeFalse();
         }
 
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData("netcoreapp3.0")]
         public void ILLink_does_not_include_leftover_artifacts_on_second_run(string targetFramework)
         {
@@ -518,7 +518,7 @@ namespace Microsoft.NET.Publish.Tests
             Directory.Exists(Path.Combine(publishDirectory, "linked")).Should().BeFalse();
         }
 
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData("netcoreapp3.0")]
         public void ILLink_keeps_symbols_by_default(string targetFramework)
         {
@@ -551,7 +551,7 @@ namespace Microsoft.NET.Publish.Tests
             publishPdbSize.Should().Be(linkedPdbSize);
         }
 
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData("netcoreapp3.0")]
         public void ILLink_removes_symbols_when_debugger_support_is_disabled(string targetFramework)
         {
@@ -579,7 +579,7 @@ namespace Microsoft.NET.Publish.Tests
             File.Exists(publishedPdb).Should().BeFalse();
         }
 
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData("netcoreapp3.0")]
         public void ILLink_accepts_option_to_remove_symbols(string targetFramework)
         {
@@ -607,7 +607,7 @@ namespace Microsoft.NET.Publish.Tests
             File.Exists(publishedPdb).Should().BeFalse();
         }
 
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData("netcoreapp3.0")]
         public void ILLink_symbols_option_can_override_defaults_from_debugger_support(string targetFramework)
         {
@@ -696,7 +696,7 @@ namespace Microsoft.NET.Publish.Tests
                 .And.HaveStdOutContaining("warning IL2026");
         }
 
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData("net5.0")]
         public void ILLink_respects_analysis_level(string targetFramework)
         {
@@ -747,7 +747,7 @@ namespace Microsoft.NET.Publish.Tests
                 .And.HaveStdOutContaining("warning IL2075");
         }
 
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData("netcoreapp3.0")]
         public void ILLink_error_on_portable_app(string targetFramework)
         {
@@ -763,7 +763,7 @@ namespace Microsoft.NET.Publish.Tests
                 .And.HaveStdOutContaining(Strings.ILLinkNotSupportedError);
         }
 
-        [Theory]
+        [Theory(Skip ="tmp")]
         [InlineData("netcoreapp3.0")]
         public void ILLink_displays_informational_warning(string targetFramework)
         {
@@ -884,7 +884,7 @@ namespace Microsoft.NET.Publish.Tests
                 .First().Remove();
         }
 
-        [Fact]
+        [Fact(Skip ="tmp")]
         public void It_warns_when_targetting_netcoreapp_2_x()
         {
             var testProject = new TestProject()

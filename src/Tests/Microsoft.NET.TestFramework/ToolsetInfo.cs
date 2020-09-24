@@ -77,6 +77,8 @@ namespace Microsoft.NET.TestFramework
 
             _sdkFolderUnderTest = new Lazy<string>(() => Path.Combine(DotNetRoot, "sdk", SdkVersion));
             _sdksPath = new Lazy<string>(() => Path.Combine(SdkFolderUnderTest, "Sdks"));
+
+            FullFrameworkMSBuildPath = @"C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Current\Bin\msbuild.exe";
         }
 
         private void InitSdkVersion()
